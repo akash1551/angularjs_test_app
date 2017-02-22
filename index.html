@@ -3,14 +3,36 @@
 <head>
 	<title>Angular Tutorial</title>
 	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
 </head>
-<body ng-app>
+<body ng-app = "myModule">
 
-<div>
-	10 + 20 = {{ 10 + 20 }}
-</div>
+	<div ng-controller = "myController">
 
-<p>This is angularjs test app</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Likes</th>
+					<th>Dislikes</th>
+					<th>Like/Dislike</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat = "technology in technologies">
+					<td>{{ technology.name }}</td>
+					<td>{{ technology.likes }}</td>
+					<td>{{ technology.dislikes }}</td>
+
+					<td>
+					<input type="button" name="Like" value="Like" ng-click="incrementLikes(technology)">
+					<input type="button" name="Dislike" value="Dislike" ng-click="incrementDislikes(technology)">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
 
 </body>
 </html>

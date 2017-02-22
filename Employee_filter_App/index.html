@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Angular Tutorial</title>
+	<script src="angular.min.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-app = "myModule">
+
+	<div ng-controller = "myController">
+<!-- 		Rows to display: <input type="number" step="1" min="0" max="5" ng-model="rowLimit"/>
+		Order By: 	<select ng-model="sortColumn">
+						<option value="name">Name</option>
+						<option value="gender">Gender</option>
+						<option value="dateOfBirth">Date Of Birth</option>
+						<option value="Salary">Salary</option>
+					</select>
+ -->
+		<!-- <br><br> -->
+		<table>
+			<thead>
+				<tr>
+					<th ng-model="sortColumn">Name</th>
+					<th>Date Of Birth</th>
+					<th>Gender</th>
+					<th>Salary (Number)</th>
+					<th>Salary (Currency)</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- <tr ng-repeat = "employee in employees | limitTo:rowLimit"> -->
+				<tr ng-repeat = "employee in employees | orderBy: sortColumn">
+					<td>{{ employee.name | uppercase}}</td>
+					<td>{{ employee.dateOfBirth | date: "dd/MM/yyyy"}}</td>
+					<td>{{ employee.gender | lowercase}}</td>
+					<td>{{ employee.Salary | number: 2}} </td>
+					<td>{{ employee.Salary | currency}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+	</div>
+
+</body>
+</html>
